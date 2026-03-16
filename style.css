@@ -161,7 +161,7 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    min-height: 40vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
