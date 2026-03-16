@@ -211,20 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Auto-Apertura Proactiva (10 segundos)
-    setTimeout(() => {
-        // Solo abrir si no ha interactuado antes (puedes guardar estado en localstorage si quieres ser más sutil)
-        if (!nexusWidget.classList.contains('active')) {
-            nexusWidget.classList.add('active');
-            // Actualizar icono launcher
-            if (launcher) {
-                const icon = launcher.querySelector('i');
-                icon.classList.remove('fa-comment-dots');
-                icon.classList.add('fa-chevron-down');
-            }
-            console.log('Nexus Chat Auto-Opened');
-        }
-    }, 10000);
+    // Auto-apertura proactiva eliminada a petición del usuario
     // --- STRIPE CHECKOUT INTEGRATION ---
     const stripe = Stripe('pk_live_51MAXB3GDFfa30sCyu2hTAKLklBruJnvJg7KsecPQQTnBUvpil9U7yZp7vERtoMfwrT8N1No0hAVQumZCEZKpSP4t00YDjNWOog');
     const checkoutModal = document.getElementById('checkout-modal');
