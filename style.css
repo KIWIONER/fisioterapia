@@ -161,14 +161,14 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    min-height: 90vh;
+    min-height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: var(--white);
     position: relative;
-    padding: 0 20px;
+    padding: 40px 20px;
 }
 
 #hero::before {
