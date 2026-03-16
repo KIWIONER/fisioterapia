@@ -1,0 +1,853 @@
+/* 
+   Fisioterapia Melros - CRO Landing Page Styles 
+   Palette: Clean, Trustworthy, Medical
+*/
+
+:root {
+    --primary-color: #007bff;
+    /* Un azul clínico pero vibrante (User Request) */
+    --primary-dark: #0056b3;
+    --secondary-color: #264653;
+    /* Dark Blue - Trust and professionalism */
+    --accent-color: #E9C46A;
+    /* Warm yellow/sand for highlights */
+    --text-color: #333333;
+    --light-text: #666666;
+    --background-color: #ffffff;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --nav-height: 80px;
+    --border-radius: 5px;
+    /* Updated to 5px (User Request) */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+/* --- USER SPECIFIC STYLES START --- */
+
+/* Hacer el header pegajoso para que el botón nunca se pierda */
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Extra layout rules to maintain structure */
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    border-bottom: 1px solid #eee;
+}
+
+/* Color de acción para el botón de conversión */
+.primary-btn,
+.cta-header {
+    background-color: #007bff;
+    /* Un azul clínico pero vibrante */
+    color: white !important;
+    /* Force override for links */
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px 24px;
+    transition: transform 0.2s;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.primary-btn:hover,
+.cta-header:hover {
+    transform: scale(1.05);
+    /* Efecto visual de feedback */
+    background-color: #0056b3;
+}
+
+/* --- USER SPECIFIC STYLES END --- */
+
+/* Logo & Nav Restyling to match */
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+nav ul li:hover {
+    color: var(--primary-color);
+}
+
+nav ul li a {
+    color: inherit;
+}
+
+
+/* Hero Section */
+#hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Background Image with Overlay */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.35rem;
+    margin-bottom: 2.5rem;
+    color: #555;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 12px 24px;
+    /* Matched to primary */
+    border-radius: 5px;
+    /* Matched to primary */
+    font-weight: bold;
+    border: 2px solid #e0e0e0;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.secondary-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    transform: scale(1.05);
+    /* Matching feedback */
+}
+
+/* Social Proof Bar */
+#social-proof-bar {
+    padding: 60px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* ... existing styles ... */
+
+/* Problem Agitator */
+#problems {
+    padding: 120px 0;
+    /* More breathing room */
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+}
+
+.problem-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    transition: transform 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+}
+
+.problem-card i {
+    font-size: 3rem;
+    color: #E76F51;
+    margin-bottom: 25px;
+    background: #fff5f2;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.problem-card h3 {
+    margin-bottom: 15px;
+}
+
+/* Services */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card.service-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.card.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.service-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    background: #eef7ff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.card.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--secondary-color);
+}
+
+.card.service-card p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.service-focus {
+    font-size: 0.85rem;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.alchemy-card {
+    background: linear-gradient(135deg, #ffffff 0%, #eef7ff 100%) !important;
+    border: 1px solid #cceeff !important;
+}
+
+.alchemy-card .service-icon {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.alchemy-link {
+    background-color: var(--secondary-color) !important;
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: auto;
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s;
+    width: 100%;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Authority and Badges */
+.authority-box {
+    padding: 40px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    display: inline-block;
+}
+
+.badges {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.badge {
+    background-color: var(--light-bg);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.faq-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+#services {
+    padding: 120px 0;
+    background-color: #fcfcfc;
+    /* Slight differentiation */
+}
+
+/* ... */
+
+/* Authority */
+#team {
+    padding: 120px 0;
+}
+
+/* ... */
+
+/* FAQ */
+#faq {
+    padding: 120px 0;
+}
+
+/* Contact */
+#contact {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 100px 0;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.contact-form-wrapper {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 12px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f9f9f9;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: #fff;
+    border-color: var(--primary-color);
+}
+
+.contact-info-panel p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info-panel h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.phone-big {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 20px 0;
+}
+
+.map-placeholder {
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sticky {
+        padding: 15px 20px;
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+
+    nav ul {
+        gap: 15px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cta-header {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .grid-3,
+    .faq-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Nexus Chat Button inside messages */
+.nexus-chat-btn {
+    display: inline-block;
+    background-color: #25D366;
+    /* WhatsApp Green */
+    color: white !important;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #1fa851;
+}
+
+.nexus-chat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: #20bd5a;
+}
+
+.nexus-chat-btn i {
+    margin-right: 5px;
+}
+
+/* Booking Widget Styling */
+.booking-widget {
+    background: #f1f8f6;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccece6;
+    margin-top: 10px;
+}
+
+.booking-date,
+.booking-time {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background: white;
+}
+
+.booking-date:focus,
+.booking-time:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Nexus Launcher Bubble */
+.nexus-launcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.nexus-launcher:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+}
+
+/* Nexus Chat Widget Styles */
+.nexus-widget {
+    position: fixed;
+    bottom: 90px;
+    /* Above launcher */
+    right: 20px;
+    width: 350px;
+    /* Limit total height to avoid going off-screen */
+    max-height: 80vh;
+    display: flex;
+    /* Flexbox to manage header/body/footer */
+    flex-direction: column;
+
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+
+    /* State: Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid #e1e4e8;
+}
+
+.nexus-widget.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Small improvement */
+.nexus-header {
+    justify-content: space-between;
+}
+
+.nexus-header .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* close button styling */
+}
+
+.nexus-header {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    gap: 12px;
+}
+
+.nexus-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nexus-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nexus-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.nexus-status {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nexus-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    display: block;
+}
+
+.nexus-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    line-height: 1;
+}
+
+.nexus-close:hover {
+    opacity: 1;
+}
+
+.nexus-close:hover {
+    opacity: 1;
+}
+
+/* Updated in previous block, ensuring consistency here if needed, 
+   but since I replaced the widget definition above to include flex, 
+   I should just make sure this class doesn't override it poorly.
+   Actually, the previous replace handled the structure, let's just clean up this specific block if strictly necessary. 
+   Wait, the previous edit didn't target the .nexus-body block down here. I need to edit THIS block. */
+.nexus-body {
+    padding: 20px;
+    background-color: #f4f6f8;
+    flex: 1;
+    /* Take available space */
+    overflow-y: auto;
+    /* Scroll! */
+    min-height: 150px;
+    scroll-behavior: smooth;
+}
+
+.nexus-message-bubble {
+    background-color: var(--white);
+    padding: 12px 15px;
+    border-radius: 12px;
+    border-top-left-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.nexus-footer {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.nexus-footer input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background: #fafafa;
+}
+
+.nexus-send {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Checkout Modal (User Provided) */
+.checkout-modal {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-modal.active {
+    display: flex;
+}
+
+.checkout-content {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    /* Ancho de tarjeta de crédito estándar */
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-checkout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-checkout:hover {
+    color: var(--text-color);
+}
