@@ -4,23 +4,21 @@
 */
 
 :root {
-    --primary-color: #007bff;
-    /* Un azul clínico pero vibrante (User Request) */
-    --primary-dark: #0056b3;
-    --secondary-color: #264653;
-    /* Dark Blue - Trust and professionalism */
-    --accent-color: #E9C46A;
-    /* Warm yellow/sand for highlights */
-    --text-color: #333333;
-    --light-text: #666666;
-    --background-color: #ffffff;
-    --light-bg: #f8f9fa;
+    --primary-color: #fbbf24; /* Alchemy Gold */
+    --primary-dark: #d97706;
+    --secondary-color: #0f172a; /* Deep Slate Blue */
+    --accent-color: #fbbf24;
+    --text-color: #f8fafc;
+    --light-text: #94a3b8;
+    --background-color: #0f172a;
+    --light-bg: #1e293b;
     --white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
     --nav-height: 80px;
-    --border-radius: 5px;
-    /* Updated to 5px (User Request) */
-    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --border-radius: 12px;
+    --shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
 }
 
 /* Reset & Base Styles */
@@ -29,6 +27,10 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--secondary-color);
 }
 
 body {
@@ -89,15 +91,15 @@ ul {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Extra layout rules to maintain structure */
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     height: var(--nav-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Color de acción para el botón de conversión */
@@ -129,9 +131,9 @@ ul {
 .logo {
     font-size: 1.6rem;
     font-weight: 800;
-    color: var(--secondary-color);
+    color: var(--white);
     text-transform: uppercase;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
 }
 
 nav ul {
@@ -158,17 +160,17 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    min-height: 85vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Background Image with Overlay */
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('hero-bg.png');
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 0 20px;
+    color: var(--white);
 }
 
 .hero-content {
@@ -248,12 +250,14 @@ nav ul li a {
 
 .section-header p {
     font-size: 1.1rem;
+    color: var(--light-text);
 }
 
 .problem-card {
     text-align: center;
     padding: 40px 30px;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--border-radius);
     transition: transform 0.3s;
 }
@@ -281,106 +285,118 @@ nav ul li a {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+#services {
+    padding: 120px 0;
+    background-color: var(--secondary-color);
+    background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+}
 
+/* Service Card Glassmorphism */
 .card.service-card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #f0f0f0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(30px);
+    height: 100%; /* Keep existing height property */
+    display: flex; /* Keep existing display property */
+    flex-direction: column; /* Keep existing flex-direction property */
+    align-items: flex-start; /* Keep existing align-items property */
+    text-align: left; /* Keep existing text-align property */
+    position: relative; /* Keep existing position property */
+    overflow: hidden; /* Keep existing overflow property */
+}
+
+.card.service-card.reveal {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
-    border-color: var(--primary-color);
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: rgba(251, 191, 36, 0.3) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .service-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    background: #eef7ff;
-    width: 60px;
-    height: 60px;
+    font-size: 2.22rem;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    background: rgba(251, 191, 36, 0.1);
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(251, 191, 36, 0.2);
 }
 
 .card.service-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    color: var(--secondary-color);
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    letter-spacing: -0.01em;
 }
 
 .card.service-card p {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    color: #cbd5e1; /* slate-300 */
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .service-focus {
-    font-size: 0.85rem;
-    background: #f8f9fa;
-    padding: 8px 12px;
-    border-radius: 6px;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.alchemy-card {
-    background: linear-gradient(135deg, #ffffff 0%, #eef7ff 100%) !important;
-    border: 1px solid #cceeff !important;
-}
-
-.alchemy-card .service-icon {
-    background: var(--secondary-color);
-    color: var(--white);
-}
-
-.alchemy-link {
-    background-color: var(--secondary-color) !important;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+    font-weight: 500;
 }
 
 .service-link {
-    display: inline-block;
-    margin-top: auto;
-    background-color: var(--primary-color);
-    color: white !important;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-align: center;
-    transition: all 0.3s;
-    width: 100%;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: inline-block; /* Keep existing display property */
+    margin-top: auto; /* Keep existing margin-top property */
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+    color: #0f172a !important;
+    padding: 12px 24px; /* Keep existing padding property */
+    border-radius: 8px; /* Keep existing border-radius property */
+    font-weight: 700; /* Keep existing font-weight property */
+    text-align: center; /* Keep existing text-align property */
+    transition: all 0.3s; /* Keep existing transition property */
+    width: 100%; /* Keep existing width property */
+    font-size: 0.9rem; /* Keep existing font-size property */
+    text-transform: uppercase; /* Keep existing text-transform property */
+    letter-spacing: 0.5px; /* Keep existing letter-spacing property */
+    border: none;
+    box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.39);
 }
 
 .service-link:hover {
-    background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+    filter: brightness(1.1);
 }
+
+.alchemy-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(251, 191, 36, 0.05) 100%) !important;
+    border: 1px solid rgba(251, 191, 36, 0.2) !important;
+}
+
 
 /* Authority and Badges */
 .authority-box {
-    padding: 40px;
-    background: var(--white);
-    border-radius: var(--border-radius);
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
     box-shadow: var(--shadow-soft);
     display: inline-block;
+    max-width: 800px;
 }
 
 .badges {
@@ -408,10 +424,10 @@ nav ul li a {
 }
 
 .faq-item {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.02);
     padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .faq-item h4 {
@@ -422,8 +438,7 @@ nav ul li a {
 
 #services {
     padding: 120px 0;
-    background-color: #fcfcfc;
-    /* Slight differentiation */
+    background-color: var(--secondary-color);
 }
 
 /* ... */
@@ -442,9 +457,10 @@ nav ul li a {
 
 /* Contact */
 #contact {
-    background-color: var(--secondary-color);
+    background-color: #0f172a;
+    background-image: linear-gradient(to bottom, #0f172a, #0b1120);
     color: var(--white);
-    padding: 100px 0;
+    padding: 120px 0;
 }
 
 .contact-container {
