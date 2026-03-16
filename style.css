@@ -166,7 +166,7 @@ nav ul li a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background-color: var(--white);
     position: relative;
     padding: 0 20px;
 }
@@ -304,8 +304,7 @@ nav ul li a {
 }
 #services {
     padding: 120px 0;
-    background-color: #f8fafc;
-    background-image: radial-gradient(circle at 10% 20%, rgba(251, 191, 36, 0.03) 0%, rgba(255, 255, 255, 0) 90%);
+    background-color: var(--white);
 }
 
 .card.service-card {
